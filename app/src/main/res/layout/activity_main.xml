@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pizzaListModel"
+            type="nicklavender.pizzame.viewmodel.PizzaPlacesListViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pizza_places_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:adapter="@{pizzaListModel.pizzaPlacesAdapter}"
+            app:data="@{pizzaListModel.viewModelData}"
+            tools:context="nicklavender.pizzame.view.MainActivity" />
+
+        <TextView
+            android:id="@+id/no_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/ask_for_permissions"
+            android:visibility="gone"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
