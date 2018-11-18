@@ -36,7 +36,7 @@ import nicklavender.pizzame.api.queryresult.PizzaResponseTop;
 import nicklavender.pizzame.databinding.ActivityMainBinding;
 import nicklavender.pizzame.databinding.AppDataBindingComponent;
 import nicklavender.pizzame.model.PizzaPlaceModel;
-import nicklavender.pizzame.utilities.StringUtilities;
+import nicklavender.pizzame.utils.StringUtils;
 import nicklavender.pizzame.viewmodel.PizzaPlacesListViewModel;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getPizzaPlaces() {
         Log.d(TAG, "getPizzaPlaces for zip: " + zip);
-        PizzaAPI.pizzaPlaceApiService().getPizzaPlaces(StringUtilities.getDefaultApi(zip)).enqueue(new retrofit2.Callback<PizzaResponseTop>() {
+        PizzaAPI.pizzaPlaceApiService().getPizzaPlaces(StringUtils.getDefaultApi(zip)).enqueue(new retrofit2.Callback<PizzaResponseTop>() {
             @Override
             public void onResponse(@NonNull Call<PizzaResponseTop> call, @NonNull Response<PizzaResponseTop> response) {
                 if (response.isSuccessful()) {
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     private void getMorePizzaPlaces() {
         int currentSize = pizzaPlacesListViewModel.getViewModelData().size();
         Log.d(TAG, "getMorePizzaPlaces currentSize: " + currentSize);
-        PizzaAPI.pizzaPlaceApiService().getPizzaPlacesPage(StringUtilities.getPagedApi(zip, currentSize, PizzaMeConstants.PAGE_SIZE)).enqueue(new retrofit2.Callback<PizzaResponseTop>() {
+        PizzaAPI.pizzaPlaceApiService().getPizzaPlacesPage(StringUtils.getPagedApi(zip, currentSize, PizzaMeConstants.PAGE_SIZE)).enqueue(new retrofit2.Callback<PizzaResponseTop>() {
             @Override
             public void onResponse(@NonNull Call<PizzaResponseTop> call, @NonNull Response<PizzaResponseTop> response) {
                 if (response.isSuccessful()) {

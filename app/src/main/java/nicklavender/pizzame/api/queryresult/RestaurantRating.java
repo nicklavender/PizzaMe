@@ -3,6 +3,8 @@
  */
 package nicklavender.pizzame.api.queryresult;
 
+import android.support.annotation.VisibleForTesting;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -10,57 +12,46 @@ public class RestaurantRating {
 
     @SerializedName("AverageRating")
     @Expose
-    private String averageRating;
+    private final String averageRating;
     @SerializedName("TotalRatings")
     @Expose
-    private String totalRatings;
+    private final String totalRatings;
     @SerializedName("TotalReviews")
     @Expose
-    private String totalReviews;
+    private final String totalReviews;
     @SerializedName("LastReviewDate")
     @Expose
-    private String lastReviewDate;
+    private final String lastReviewDate;
     @SerializedName("LastReviewIntro")
     @Expose
-    private String lastReviewIntro;
+    private final String lastReviewIntro;
+
+    @VisibleForTesting
+    public RestaurantRating(String averageRating, String totalRatings, String totalReviews, String lastReviewDate, String lastReviewIntro) {
+        this.averageRating = averageRating;
+        this.totalRatings = totalRatings;
+        this.totalReviews = totalReviews;
+        this.lastReviewDate = lastReviewDate;
+        this.lastReviewIntro = lastReviewIntro;
+    }
 
     public String getAverageRating() {
         return averageRating;
-    }
-
-    public void setAverageRating(String averageRating) {
-        this.averageRating = averageRating;
     }
 
     public String getTotalRatings() {
         return totalRatings;
     }
 
-    public void setTotalRatings(String totalRatings) {
-        this.totalRatings = totalRatings;
-    }
-
     public String getTotalReviews() {
         return totalReviews;
-    }
-
-    public void setTotalReviews(String totalReviews) {
-        this.totalReviews = totalReviews;
     }
 
     public String getLastReviewDate() {
         return lastReviewDate;
     }
 
-    public void setLastReviewDate(String lastReviewDate) {
-        this.lastReviewDate = lastReviewDate;
-    }
-
     public String getLastReviewIntro() {
         return lastReviewIntro;
-    }
-
-    public void setLastReviewIntro(String lastReviewIntro) {
-        this.lastReviewIntro = lastReviewIntro;
     }
 }

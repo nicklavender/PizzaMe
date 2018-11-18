@@ -51,6 +51,7 @@ public class PizzaPlacesListViewModel extends BaseObservable {
         notifyPropertyChanged(BR.viewModelData);
     }
 
+
     void pizzaPlaceSelected(PizzaPlaceModel pizzaPlaceModel) {
         selected.setValue(pizzaPlaceModel);
     }

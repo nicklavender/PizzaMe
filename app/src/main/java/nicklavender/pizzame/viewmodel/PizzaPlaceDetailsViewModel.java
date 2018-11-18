@@ -9,7 +9,7 @@ import android.databinding.Bindable;
 import android.util.Log;
 
 import nicklavender.pizzame.model.PizzaPlaceModel;
-import nicklavender.pizzame.utilities.StringUtilities;
+import nicklavender.pizzame.utils.StringUtils;
 
 public class PizzaPlaceDetailsViewModel extends PizzaPlaceViewModel {
 
@@ -30,7 +30,7 @@ public class PizzaPlaceDetailsViewModel extends PizzaPlaceViewModel {
 
     @Bindable
     public String getTotalRatings() {
-        return StringUtilities.getTotalRatings(pizzaPlace.getTotalRatings());
+        return StringUtils.getTotalRatings(pizzaPlace.getTotalRatings());
     }
 
     public void onPhoneNumberClicked() {

@@ -6,7 +6,7 @@ package nicklavender.pizzame.api.queryresult;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
+@SuppressWarnings("unused")
 public class Query {
 
     @SerializedName("count")
@@ -22,14 +22,6 @@ public class Query {
     @Expose
     private PizzaPlaces results;
 
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
     public String getCreated() {
         return created;
     }
@@ -38,20 +30,9 @@ public class Query {
         this.created = created;
     }
 
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
     public PizzaPlaces getResults() {
         return results;
     }
 
-    public void setResults(PizzaPlaces results) {
-        this.results = results;
-    }
 
 }

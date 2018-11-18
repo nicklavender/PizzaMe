@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import nicklavender.pizzame.model.PizzaPlaceModel;
-import nicklavender.pizzame.utilities.StringUtilities;
+import nicklavender.pizzame.utils.StringUtils;
 
 public class PizzaPlaceViewModel extends BaseObservable {
 
@@ -26,12 +26,12 @@ public class PizzaPlaceViewModel extends BaseObservable {
 
     @Bindable
     public String getName() {
-        return StringUtilities.getTitle(pizzaPlace.getName());
+        return StringUtils.getTitle(pizzaPlace.getName());
     }
 
     @Bindable
     public String getRating() {
-        return StringUtilities.getRating(pizzaPlace.getAverageRating());
+        return StringUtils.getRating(pizzaPlace.getAverageRating());
     }
 
     @Bindable
@@ -40,7 +40,7 @@ public class PizzaPlaceViewModel extends BaseObservable {
     }
 
     @Bindable
-    String getPhoneNumber() {
+    public String getPhoneNumber() {
         return pizzaPlace.getPhoneNumber();
     }
 
@@ -51,12 +51,12 @@ public class PizzaPlaceViewModel extends BaseObservable {
 
     @Bindable
     public String getCityState() {
-        return StringUtilities.getCityState(pizzaPlace.getCity(), pizzaPlace.getState());
+        return StringUtils.getCityState(pizzaPlace.getCity(), pizzaPlace.getState());
     }
 
     @Bindable
     public String getDistance() {
-        return StringUtilities.getDistance(pizzaPlace.getDistance());
+        return StringUtils.getDistance(pizzaPlace.getDistance());
     }
 
     public void onRestaurantClicked() {

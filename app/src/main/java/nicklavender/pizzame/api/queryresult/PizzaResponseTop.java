@@ -6,6 +6,7 @@ package nicklavender.pizzame.api.queryresult;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class PizzaResponseTop {
 
     @SerializedName("query")
@@ -16,8 +17,5 @@ public class PizzaResponseTop {
         return query;
     }
 
-    public void setQuery(Query query) {
-        this.query = query;
-    }
 
 }

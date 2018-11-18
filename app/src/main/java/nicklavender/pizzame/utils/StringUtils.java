@@ -1,16 +1,13 @@
 /*
  * Created by Nick Lavender - 2018
  */
-package nicklavender.pizzame.utilities;
+package nicklavender.pizzame.utils;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.annotation.NonNull;
 
 import nicklavender.pizzame.PizzaMeConstants;
 
-public class StringUtilities {
-
-    private final static String TAG = StringUtilities.class.getSimpleName();
+public class StringUtils {
 
     public static String getDefaultApi(String zip) {
         String firstPage = PizzaMeConstants.DEFAULT_PIZZA_SEARCH;
@@ -23,12 +20,11 @@ public class StringUtilities {
         paged = paged.replace("{offset}", String.valueOf(offset));
         paged = paged.replace("{amount}", String.valueOf(amount));
         paged = paged.replace("{zip}", zip);
-        Log.d(TAG, "getPagedApi offset: " + offset + " amount: " + amount + " full: " + paged);
         return paged;
     }
 
     public static String getTitle(String title) {
-        return !TextUtils.isEmpty(title) ? title : "";
+        return StringUtils.isNullOrEmpty(title) ? "" : title;
     }
 
     public static String getRating(String rating) {
@@ -36,21 +32,32 @@ public class StringUtilities {
     }
 
     public static String getCityState(String city, String state) {
-        if (TextUtils.isEmpty(city) || TextUtils.isEmpty(state)) {
+        if (StringUtils.isNullOrEmpty(city) || StringUtils.isNullOrEmpty(state)) {
+            if (city == null) {
+                city = "";
+            }
+            if (state == null) {
+                state = "";
+            }
             return city + state;
         }
-        return city + " ," + state;
+        return city + ", " + state;
     }
 
     public static String getDistance(String distance) {
-        return TextUtils.isEmpty(distance) ? "" : distance + "mi.";
+        return StringUtils.isNullOrEmpty(distance) ? "" : distance + "mi.";
     }
 
     public static String getTotalRatings(String totalRatings) {
-        return TextUtils.isEmpty(totalRatings) ? "" : totalRatings + " ratings";
+        return StringUtils.isNullOrEmpty(totalRatings) ? "" : totalRatings + " ratings";
     }
 
-    public static String getGeoSearchString(String latitude, String longitude) {
+    public static String getGeoSearchString(@NonNull String latitude, @NonNull String longitude) {
         return "geo:" + latitude + "," + longitude + "?q=";
     }
+
+    private static boolean isNullOrEmpty(String string) {
+        return string == null || string.length() == 0;
+    }
+
 }

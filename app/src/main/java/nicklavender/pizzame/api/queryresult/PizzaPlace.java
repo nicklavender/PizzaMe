@@ -4,10 +4,12 @@
 package nicklavender.pizzame.api.queryresult;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public class PizzaPlace {
 
     @SerializedName("id")
@@ -24,11 +26,11 @@ public class PizzaPlace {
 
     @SerializedName("Address")
     @Expose
-    private String address;
+    private final String address;
 
     @SerializedName("City")
     @Expose
-    private String city;
+    private final String city;
 
     @SerializedName("State")
     @Expose
@@ -40,15 +42,15 @@ public class PizzaPlace {
 
     @SerializedName("Latitude")
     @Expose
-    private String latitude;
+    private final String latitude;
 
     @SerializedName("Longitude")
     @Expose
-    private String longitude;
+    private final String longitude;
 
     @SerializedName("Rating")
     @Expose
-    private RestaurantRating rating;
+    private final RestaurantRating rating;
 
     @SerializedName("Distance")
     @Expose
@@ -56,27 +58,49 @@ public class PizzaPlace {
 
     @SerializedName("Url")
     @Expose
-    private String yahooUrl;
+    private final String yahooUrl;
 
     @SerializedName("ClickUrl")
     @Expose
-    private String clickUrl;
+    private final String clickUrl;
 
     @SerializedName("MapUrl")
     @Expose
-    private String mapUrl;
+    private final String mapUrl;
 
     @SerializedName("BusinessUrl")
     @Expose
-    private String businessUrl;
+    private final String businessUrl;
 
     @SerializedName("BusinessClickUrl")
     @Expose
-    private String businessClickUrl;
+    private final String businessClickUrl;
 
     @SerializedName("Categories")
     @Expose
-    private RestaurantCategories categories;
+    private final RestaurantCategories categories;
+
+    @VisibleForTesting
+    public PizzaPlace(String id, String xmlns, String name, String address, String city, String state, String phoneNumber, String latitude, String longitude, RestaurantRating rating,
+                       String distance, String yahooUrl, String clickUrl, String mapUrl, String businessUrl, String businessClickUrl, RestaurantCategories categories) {
+        this.id = id;
+        this.xmlns = xmlns;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.phoneNumber = phoneNumber;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.rating = rating;
+        this.distance = distance;
+        this.yahooUrl = yahooUrl;
+        this.clickUrl = clickUrl;
+        this.mapUrl = mapUrl;
+        this.businessUrl = businessUrl;
+        this.businessClickUrl = businessClickUrl;
+        this.categories = categories;
+    }
 
     public String getId() {
         return id;
@@ -106,16 +130,8 @@ public class PizzaPlace {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getState() {
@@ -138,24 +154,12 @@ public class PizzaPlace {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
     public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
     public RestaurantRating getRating() {
         return rating;
-    }
-
-    public void setRating(RestaurantRating rating) {
-        this.rating = rating;
     }
 
     public String getDistance() {
@@ -166,52 +170,12 @@ public class PizzaPlace {
         this.distance = distance;
     }
 
-    public String getYahooUrl() {
-        return yahooUrl;
-    }
-
-    public void setYahooUrl(String yahooUrl) {
-        this.yahooUrl = yahooUrl;
-    }
-
-    public String getClickUrl() {
-        return clickUrl;
-    }
-
-    public void setClickUrl(String clickUrl) {
-        this.clickUrl = clickUrl;
-    }
-
     public String getMapUrl() {
         return mapUrl;
     }
 
-    public void setMapUrl(String mapUrl) {
-        this.mapUrl = mapUrl;
-    }
-
     public String getBusinessUrl() {
         return businessUrl;
-    }
-
-    public void setBusinessUrl(String businessUrl) {
-        this.businessUrl = businessUrl;
-    }
-
-    public String getBusinessClickUrl() {
-        return businessClickUrl;
-    }
-
-    public void setBusinessClickUrl(String businessClickUrl) {
-        this.businessClickUrl = businessClickUrl;
-    }
-
-    public RestaurantCategories getCategories() {
-        return categories;
-    }
-
-    public void setCategories(RestaurantCategories categories) {
-        this.categories = categories;
     }
 
     @NonNull

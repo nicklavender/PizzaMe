@@ -14,19 +14,16 @@ public class PizzaPlaces {
 
     @SerializedName("Result")
     @Expose
-    private List<PizzaPlace> result = null;
+    private final List<PizzaPlace> result = null;
 
     public List<PizzaPlace> getResult() {
         return result;
     }
 
-    public void setResult(List<PizzaPlace> result) {
-        this.result = result;
-    }
-
     @NonNull
     @Override
     public String toString() {
+        int count = result == null ? 0 : result.size();
         return "PizzaPlaces: count: " + result.size();
     }
 

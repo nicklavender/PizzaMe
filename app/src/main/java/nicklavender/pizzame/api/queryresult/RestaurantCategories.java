@@ -3,31 +3,32 @@
  */
 package nicklavender.pizzame.api.queryresult;
 
+import android.support.annotation.VisibleForTesting;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class RestaurantCategories {
 
-        @SerializedName("id")
-        @Expose
-        private String id;
-        @SerializedName("content")
-        @Expose
-        private String content;
+    @SerializedName("id")
+    @Expose
+    private final String id;
+    @SerializedName("content")
+    @Expose
+    private final String content;
 
-        public String getId() {
-            return id;
-        }
+    @VisibleForTesting
+    public RestaurantCategories(String id, String content) {
+        this.id = id;
+        this.content = content;
+    }
 
-        public void setId(String id) {
-            this.id = id;
-        }
+    public String getId() {
+        return id;
+    }
 
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
-        }
+    public String getContent() {
+        return content;
+    }
 }

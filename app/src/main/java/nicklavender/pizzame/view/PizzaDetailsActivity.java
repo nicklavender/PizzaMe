@@ -18,7 +18,7 @@ import nicklavender.pizzame.PizzaMeConstants;
 import nicklavender.pizzame.R;
 import nicklavender.pizzame.databinding.ActivityPizzaPlaceDetailsBinding;
 import nicklavender.pizzame.model.PizzaPlaceModel;
-import nicklavender.pizzame.utilities.StringUtilities;
+import nicklavender.pizzame.utils.StringUtils;
 import nicklavender.pizzame.viewmodel.PizzaPlaceDetailsViewModel;
 
 public class PizzaDetailsActivity extends AppCompatActivity {
@@ -72,7 +72,7 @@ public class PizzaDetailsActivity extends AppCompatActivity {
 
     private void onGetDirectionsSelected(PizzaPlaceModel pizzaPlaceModel) {
         Log.d(TAG, "onGetDirectionsSelected: " + pizzaPlaceModel);
-        Uri gmmIntentUri = Uri.parse(StringUtilities.getGeoSearchString(pizzaPlaceModel.getLatitude(), pizzaPlaceModel.getLongitude()) + Uri.encode(pizzaPlaceModel.getName()));
+        Uri gmmIntentUri = Uri.parse(StringUtils.getGeoSearchString(pizzaPlaceModel.getLatitude(), pizzaPlaceModel.getLongitude()) + Uri.encode(pizzaPlaceModel.getName()));
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
