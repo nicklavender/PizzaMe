@@ -5,6 +5,7 @@ package nicklavender.pizzame.viewmodel;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -19,7 +20,7 @@ public class PizzaPlaceViewModel extends BaseObservable {
     @Nullable
     private final PizzaPlacesListViewModel pizzaPlacesListViewModel;
 
-    public PizzaPlaceViewModel(PizzaPlaceModel pizzaPlacesModel, @Nullable PizzaPlacesListViewModel pizzaPlacesListViewModel) {
+    public PizzaPlaceViewModel(@NonNull PizzaPlaceModel pizzaPlacesModel, @Nullable PizzaPlacesListViewModel pizzaPlacesListViewModel) {
         this.pizzaPlace = pizzaPlacesModel;
         this.pizzaPlacesListViewModel = pizzaPlacesListViewModel;
     }

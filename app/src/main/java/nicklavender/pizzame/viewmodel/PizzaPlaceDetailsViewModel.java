@@ -6,6 +6,7 @@ package nicklavender.pizzame.viewmodel;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.databinding.Bindable;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import nicklavender.pizzame.model.PizzaPlaceModel;
@@ -20,7 +21,7 @@ public class PizzaPlaceDetailsViewModel extends PizzaPlaceViewModel {
     private final MutableLiveData<String> websiteSelected;
     private final MutableLiveData<PizzaPlaceModel> getDirectionsSelected;
 
-    public PizzaPlaceDetailsViewModel(PizzaPlaceModel pizzaPlaceModel) {
+    public PizzaPlaceDetailsViewModel(@NonNull PizzaPlaceModel pizzaPlaceModel) {
         super(pizzaPlaceModel, null);
         phoneNumberSelected = new MutableLiveData<>();
         websiteSelected = new MutableLiveData<>();

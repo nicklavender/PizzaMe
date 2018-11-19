@@ -40,8 +40,10 @@ public class PizzaDetailsActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             PizzaPlaceModel pizzaPlaceModel = extras.getParcelable(PizzaMeConstants.PARCELABLE_PIZZA_PLACE_MODEL);
-            pizzaPlaceDetailsViewModel = new PizzaPlaceDetailsViewModel(pizzaPlaceModel);
-            binding.setPizzaPlaceDetailsViewModel(pizzaPlaceDetailsViewModel);
+            if(pizzaPlaceModel != null) {
+                pizzaPlaceDetailsViewModel = new PizzaPlaceDetailsViewModel(pizzaPlaceModel);
+                binding.setPizzaPlaceDetailsViewModel(pizzaPlaceDetailsViewModel);
+            }
         }
     }
 

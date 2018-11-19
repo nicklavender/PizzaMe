@@ -195,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
 
         private void fetchNextPage(@NonNull RecyclerView recyclerView) {
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-            if (linearLayoutManager != null) {
+            if (linearLayoutManager != null && !fetchingNextPage) {
                 int visibleItemCount = linearLayoutManager.getChildCount();
                 int totalItemCount = linearLayoutManager.getItemCount();
                 int firstVisibleItemPos = linearLayoutManager.findFirstVisibleItemPosition();
-                if (visibleItemCount + firstVisibleItemPos >= totalItemCount && !fetchingNextPage) {
+                if (visibleItemCount + firstVisibleItemPos >= totalItemCount) {
                     fetchingNextPage = true;
                     getMorePizzaPlaces();
                 }

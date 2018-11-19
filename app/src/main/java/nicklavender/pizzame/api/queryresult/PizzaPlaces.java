@@ -3,8 +3,6 @@
  */
 package nicklavender.pizzame.api.queryresult;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -18,13 +16,6 @@ public class PizzaPlaces {
 
     public List<PizzaPlace> getResult() {
         return result;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        int count = result == null ? 0 : result.size();
-        return "PizzaPlaces: count: " + result.size();
     }
 
 }
