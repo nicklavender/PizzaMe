@@ -8,6 +8,8 @@ import org.junit.Test;
 import nicklavender.pizzame.utils.StringUtils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class StringUtilsUnitTest {
@@ -62,6 +64,13 @@ public class StringUtilsUnitTest {
     @Test
     public void test_get_geo_search_string() {
         assertEquals("geo:20,20?q=", StringUtils.getGeoSearchString("20", "20"));
+    }
+
+    @Test
+    public void test_is_null_or_empty() {
+        assertFalse(StringUtils.isNullOrEmpty("a"));
+        assertTrue(StringUtils.isNullOrEmpty(""));
+        assertTrue(StringUtils.isNullOrEmpty(null));
     }
 
 }

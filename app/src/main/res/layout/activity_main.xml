@@ -32,6 +32,16 @@
             android:focusable="true"
             android:text="@string/ask_for_permissions"
             android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/no_zip_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/no_zip_code"
+            android:visibility="gone"/>
     </android.support.constraint.ConstraintLayout>
 </layout>
 

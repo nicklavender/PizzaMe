@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean fetchingNextPage;
     private String zip;
     private TextView noPermissionsTextView;
+    private TextView noZipCodeTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView(view);
         setUpPizzaPlaceSelectedListener();
         noPermissionsTextView = findViewById(R.id.no_permissions);
+        noZipCodeTextView = findViewById(R.id.no_zip_code);
         getCurrentZipCode();
     }
 
@@ -88,12 +90,22 @@ public class MainActivity extends AppCompatActivity {
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             Geocoder geocoder = new Geocoder(this, Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            zip = addresses.get(0).getPostalCode();
-            getPizzaPlaces();
+            if(addresses != null && addresses.size() > 0) {
+                zip = addresses.get(0).getPostalCode();
+                showNoZipMessage(false);
+                getPizzaPlaces();
+            } else if (StringUtils.isNullOrEmpty(zip)){
+                noZipCodeTextView.setOnClickListener(v -> getCurrentZipCode());
+                showNoZipMessage(true);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             Log.d(TAG, e.toString());
         }
+    }
+
+    private void showNoZipMessage(boolean shouldShow) {
+        noZipCodeTextView.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
     }
 
     @Override

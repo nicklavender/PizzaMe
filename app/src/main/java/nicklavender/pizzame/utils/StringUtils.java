@@ -56,7 +56,7 @@ public class StringUtils {
         return "geo:" + latitude + "," + longitude + "?q=";
     }
 
-    private static boolean isNullOrEmpty(String string) {
+    public static boolean isNullOrEmpty(String string) {
         return string == null || string.length() == 0;
     }
 

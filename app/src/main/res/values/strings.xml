@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PizzaMe</string>
     <string name="ask_for_permissions">Click here to enable permissions.</string>
+    <string name="no_zip_code">No zip code found. Click to try again.</string>
     <string name="visit_website">Visit Website</string>
     <string name="get_directions">Get Directions</string>
 </resources>
